@@ -1560,6 +1560,7 @@
 <div id="menu-dropdown">
   <div class="menu-item" id="menu-about">📖 About</div>
   <div class="menu-item" id="menu-author">🎨 Author</div>
+  <div class="menu-item" id="menu-quit">🚪 Quit</div>
 </div>
 
 <!-- About modal -->
@@ -3658,6 +3659,14 @@ document.getElementById('menu-author').addEventListener('click', () => {
   document.getElementById('author-overlay').classList.add('open');
   menuDropdown.classList.remove('open');
   menuBtn.classList.remove('open');
+});
+
+document.getElementById('menu-quit').addEventListener('click', () => {
+  menuDropdown.classList.remove('open');
+  menuBtn.classList.remove('open');
+  if (!confirm('Quit Bully Puncher?')) return;
+  window.close();
+  document.body.innerHTML = '<div style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1a1a2e;color:#f1c40f;font-family:sans-serif;text-align:center;padding:20px;"><h1 style="font-size:2.5em;margin-bottom:10px;">🥊 Thanks for playing!</h1><p style="color:#fff;font-size:1.1em;">You can now close this tab.</p></div>';
 });
 
 document.querySelectorAll('.info-modal-close').forEach(btn => {
